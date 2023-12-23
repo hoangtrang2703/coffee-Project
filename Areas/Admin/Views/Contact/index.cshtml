@@ -1,0 +1,48 @@
+﻿@using startup.Models;
+@model IList<ContactModel>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách liên hệ</h2>
+    </div>
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                    <div class="card-body mt-4">
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th class="col-3 text-center">Tiêu đề</th>
+                                    <td class="col-2 text-center">Email</td>
+                                    <td class="col-1 text-center">Trạng thái</td>
+                                    <th class="col-2 text-center">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="text-center">@item.Email</td>
+                                        <td class="text-center">@item.DateSend</td>
+                                        <td class="text-center">@item.Status</td>
+                                        <td class="text-center">
+                                            <a asp-area="Admin" asp-controller="contact" asp-action="Details"
+                                               asp-route-id="@item.Id" class="btn btn-primary btn-sm"
+                                               title="xem chi tiết"><i class="bi bi-pencil"></i></a>
+                                            <a asp-area="Admin" asp-controller="contact" asp-action="Delete"
+                                               asp-route-id="@item.Id" class="btn btn-danger btn-sm"
+                                               title="Xóa thông tin bài viết"><i class="bi bi-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

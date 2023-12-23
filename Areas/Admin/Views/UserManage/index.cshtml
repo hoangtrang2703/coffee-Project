@@ -1,0 +1,46 @@
+@using startup.Models;
+@model IList<startup.Areas.Admin.Models.AdminUser>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Danh sách người dùng</h2>
+    </div>
+    <section class="section dashboard">
+        <div class="row">
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+                    <div class="card-body mt-4">
+                        <table class="table table-borderless datatable">
+                            <thead>
+                                <tr>
+                                    <th class="col-3 text-center">Tên người dùng</th>
+                                    <td class="col-2 text-center">Email</td>
+                                    <td class="col-1 text-center">Ẩn/hiện</td>
+                                    <th class="col-2 text-center">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td class="text-center">@item.UserName</td>
+                                        <td class="text-center">@item.Email</td>
+                                        <td class="text-center">@item.IsActive</td>
+                                        <td class="text-center">
+                                            <a asp-area="Admin" asp-controller="UserManage" asp-action="DeleteU"
+                                                asp-route-id="@item.UserID" class="btn btn-danger btn-sm"
+                                                title="Xóa thông tin người dùng"><i class="bi bi-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

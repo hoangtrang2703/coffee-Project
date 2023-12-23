@@ -1,0 +1,28 @@
+
+@model startup.Areas.Admin.Models.AdminUser
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Xác nhận xóa người dùng này</h2>
+    </div>
+    <div class="form-row">
+        <div class="tox-form-group--maximize col-md-6">
+            <label asp-for="UserID">Mã người dùng</label>
+            <input type="text" class="form-control mb-3" asp-for="UserName" disabled>
+        </div>
+    </div>
+    <!--begin form-->
+    <form asp-action="DeleteConfirm" asp-controller="UserManage" asp-area="Admin" method="post">
+        <input type="hidden" asp-for="UserID" />
+        <a class="btn btn-lg btn-warning p-2 mr-5" href="javascript:history.back()">
+            <i class="bi bi-arrow-left-circle"></i>Quay lại
+        </a>
+        <button type="submit" class="btn btn-lg btn-danger p-2">
+            <i class="bi bi-trash-fill"></i>Xóa người dùng
+        </button>
+    </form>
+    <!--End Form-->
+</main>

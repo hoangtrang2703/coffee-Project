@@ -1,0 +1,42 @@
+@using startup.Utilities;
+@model startup.Areas.Admin.Models.AdminUser;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @* Layout = ""; *@
+}
+
+<div class="bg-white p-3 z-index"style="    position: fixed;top: 50px; right: 50%;transform: translateX(50%);">
+    <form class="row g-3 needs-validation" novalidate asp-area="Admin" asp-controller="Register" asp-action="Index">
+    <div class="col-12">
+        <label for="yourName" class="form-label">Your Name</label>
+        <input  asp-for="UserName" class="form-control" id="yourName" required>
+        <div class="invalid-feedback">Please, enter your name!</div>
+    </div>
+
+    <div class="col-12">
+        <label for="yourEmail" class="form-label">Your Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="yourEmail" required>
+        <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+    </div>
+
+    <div class="col-12">
+        <label for="yourPassword" class="form-label">Password</label>
+        <input type="password" asp-for="Password" class="form-control" id="yourPassword" required>
+        <div class="invalid-feedback">Please enter your password!</div>
+    </div>
+
+
+    <div class="col-12 text-center text-danger">
+        <h6>
+            @Functions._MessageEmail
+        </h6>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary w-100" type="submit">Create Account</button>
+    </div>
+    <div class="col-12">
+        <p class="small mb-0">Already have an account? <a href="/Login">Log in</a></p>
+    </div>
+</form>
+</div>

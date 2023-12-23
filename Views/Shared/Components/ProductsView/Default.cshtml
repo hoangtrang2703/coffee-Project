@@ -1,0 +1,77 @@
+﻿@using startup.Models.products;
+@using startup.Utilities;
+
+@model List<ProductModel> ;
+@* 
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Our Products</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="our_products">
+                    <div class="row">
+                        @foreach(var i in Model)
+                        {
+                            <div class="col-md-4 margin_bottom1">
+                                <a href="#">
+                                    <div class="product_box">
+                                        <figure><img src="@i.Image" height="70%" width="70%" alt="#" /></figure>
+                                        <h3>@i.Name</h3>
+                                        <h5 class="text-danger">@Functions.VNĐ(@i.Price)</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ *@
+<div class="container" data-aos="fade-up">
+
+
+    <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+       
+    </ul>
+
+    <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+        <div class="tab-pane fade active show" id="menu-starters">
+
+            <div class="tab-header text-center">
+                <p>Menu</p>
+                <h3>Starters</h3>
+            </div>
+
+            <div class="row gy-5">
+                @foreach(var i in Model)
+                {
+                     <div class="col-lg-4 menu-item">
+                    <a asp-action="PrDetails" asp-controller="Home" asp-route-slug="@i.Slug" class=""><img src="@i.Image" class="menu-img img-fluid" alt=""></a>
+                    <h4>@i.Name</h4>
+                    <p class="ingredients">
+                        @i.category
+                    </p>
+                    <p class="price">
+                            @Functions.VNĐ(@i.Price) đ
+                    </p>
+                </div><!-- Menu Item -->
+
+                }
+               
+            </div>
+        </div><!-- End Starter Menu Content -->
+
+       
+    </div>
+
+</div>

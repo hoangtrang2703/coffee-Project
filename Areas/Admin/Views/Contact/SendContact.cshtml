@@ -1,0 +1,90 @@
+﻿@model ContactModel
+@{
+    Layout = "";
+}
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Site keywords here">
+    <meta name="description" content="">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Mediplus - Free Medical and Doctor Directory HTML Template.</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="~/Client/img/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Client/css/bootstrap.min.css">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="~/Client/css/nice-select.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="~/Client/css/font-awesome.min.css">
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="~/Client/css/icofont.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="~/Client/css/slicknav.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="~/Client/css/owl-carousel.css">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="~/Client/css/datepicker.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="~/Client/css/animate.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="~/Client/css/magnific-popup.css">
+
+    <!-- Medipro CSS -->
+    <link rel="stylesheet" href="~/Client/css/normalize.css">
+    <link rel="stylesheet" href="~/Client/style.css">
+    <link rel="stylesheet" href="~/Client/css/responsive.css">
+
+</head>
+@* @await Component.InvokeAsync("MenuView") *@
+
+
+<div class="row p-5">
+    <div class="col-md-4">
+        <div class="contact-firstcol p-2 h-100">
+            <h1>@ViewData["Title"]</h1>
+            <h4>Chúng tôi luôn lắng nghe các ý kiến của bạn !</h4>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <form asp-action="SendContact" class="formcontact">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <textarea rows="5" asp-for="Message" class="form-control"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Gửi liên hệ" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

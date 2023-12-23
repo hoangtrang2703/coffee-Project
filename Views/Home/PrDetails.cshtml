@@ -1,0 +1,110 @@
+﻿@using startup.Models.products;
+@using startup.Utilities;
+@model ProductModel;
+@{
+    Layout = "";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Yummy Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/Client/assets/img/favicon.png" rel="icon">
+    <link href="~/Client/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/Client/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Client/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/Client/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/Client/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/Client/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/Client/assets/css/main.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Yummy
+    * Updated: Sep 18 2023 with Bootstrap v5.3.2
+    * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+@await Component.InvokeAsync("MenuView")
+<!-- content -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row gx-5">
+            <aside class="col-lg-6">
+                <div class="border rounded-4 mb-3 d-flex justify-content-center">
+                    <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit"
+                         src="@Model.Image" />
+                </div>
+                <!-- thumbs-wrap.// -->
+                <!-- gallery-wrap .end// -->
+            </aside>
+            <main class="col-lg-6">
+                <div class="ps-lg-3">
+                    <h4 class="title text-dark">@Model.Name</h4>
+
+                    <div class="mb-3">
+                        <h4 class=" text-danger">@Functions.VNĐ(@Model.Price) đ</h4>
+                    </div>
+                    <div class="row">
+                        <dt class="col-3">Ngồn gốc: </dt>
+                        <dd class="col-9">@Model.source</dd>
+
+                        <dt class="col-3">Danh mục: </dt>
+                        <dd class="col-9">@Model.category</dd>
+                       
+                    </div>
+
+                    <hr />
+
+                    <div class="row mb-4 d-flex align-items-center justify-content-center">
+                        <div class="mr-4">Số lượng: </div>
+                        <div>
+                            <button class=" border-0 p-1"><i class="ti-minus "></i></button>
+                            <input type="text" class="text-center p-1" placeholder="1" style="width: 70px;">
+                            <button class=" border-0 p-1"><i class="ti-plus "></i></button>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-warning box-shadow button"> Buy now </a>
+                    <a href="#" class="btn btn-primary box-shadow button">
+                        <i class="me-1 fa fa-shopping-basket"></i> Add to cart
+                    </a>
+                    <a href="#" class="btn btn-light border box-shadow button border-secondary py-2 icon-hover px-3">
+                        <i class="me-1 fa fa-heart fa-lg"></i> Save
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+<!-- content -->
+<div class="p-5">
+    @Html.Raw(Model.Description)
+</div>
+
+
+<!-- Vendor JS Files -->
+<script src="~/Client/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Client/assets/vendor/aos/aos.js"></script>
+<script src="~/Client/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="~/Client/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="~/Client/assets/vendor/swiper/swiper-bundle.min.js"></script>
+@* <script src="~/Client/assets/vendor/php-email-form/validate.js"></script> *@
+
+<!-- Template Main JS File -->
+<script src="~/Client/assets/js/main.js"></script>
